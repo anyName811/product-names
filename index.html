@@ -14,11 +14,30 @@
         max-width: 992px;
       }
 
+      .product-names {
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 0;
+      }
+
+      .product-names__item:not(:last-child) {
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .product-names__item p:first-child {
+        width: 35%;
+      }
+
+      .product-names__item p:last-child {
+        width: 65%;
+      }
+
       .notification {
-        position: fixed;
         top: 50px;
-        right: 50px;
+        right: 20px;
+        width: 200px;
         opacity: 0;
+        position: fixed;
         transition: opacity 200ms ease;
       }
 
@@ -30,8 +49,14 @@
         display: none !important;
       }
 
-      .product-names__item {
-        border-top-width: 1px;
+      @media (min-width: 576px) {
+        .product-names__item p:first-child {
+          width: 50%;
+        }
+
+        .product-names__item p:last-child {
+          width: 50%;
+        }
       }
     </style>
   </head>
@@ -41,14 +66,14 @@
     <div class="container">
       <input class="form-control mb-5 search-input" type="search" name="search" id="search" placeholder="Поиск">
   
-      <ul class="list-group product-names">
-        <li class="list-group-item product-names__item d-flex align-items-center p-0">
-          <p class="product-names__name-ru mb-0 flex-grow-1 py-2 px-3 w-50">
+      <ul class="product-names">
+        <li class="product-names__item d-flex align-items-center p-0">
+          <p class="product-names__name-ru mb-0 py-2 px-3">
             <span class="name-ru"></span>
           </p>
-          <p class="product-names__name-en mb-0 flex-grow-1 py-2 px-3 w-50 border-start d-flex justify-content-between align-items-center">
+          <p class="product-names__name-en mb-0 py-2 px-3 border-start d-flex justify-content-between align-items-center">
             <span class="name-en"></span>
-            <button class="btn btn-primary btn-sm copy-btn">Копировать</button>
+            <button class="btn btn-primary btn-sm copy-btn">Copy</button>
           </p>
         </li>
       </ul>
@@ -57,7 +82,7 @@
     <div class="notification toast show align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="d-flex">
         <div class="toast-body">
-          Скопировано
+          Copied
         </div>
       </div>
     </div>

@@ -56,5 +56,6 @@ searchInput.addEventListener('input', evt => {
 })
 
 searchInput.addEventListener('paste', (evt) => {
+  searchInput.value = ''
   search(evt.target.value)
 })
